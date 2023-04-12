@@ -1,0 +1,25 @@
+{
+  // see https://www.typescriptlang.org/tsconfig to better understand tsconfigs
+  "include": ["src/**/*", "types", "index.tsx"],
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "commonjs",
+    "lib": ["esnext"],
+    "outDir": "./dist",
+    "rootDir": ".",
+    "removeComments": true,
+    "importHelpers": true,
+    "declaration": true,
+    "sourceMap": true,
+    "strict": false,
+    "moduleResolution": "node",
+    "jsx": "react",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "baseUrl": "."
+  }
+}
