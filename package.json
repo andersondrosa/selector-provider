@@ -1,0 +1,27 @@
+{
+  "name": "selector-provider",
+  "version": "0.1.0-beta",
+  "author": "Anderson D. Rosa",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "typings": "dist/cjs/index.d.ts",
+  "scripts": {
+    "dev": "nodemon dev/index.ts",
+    "build:cjs": "tsc --module commonjs --outDir dist/cjs",
+    "build:esm": "tsc --module esNext --outDir dist/esm",
+    "test": "jest --passWithNoTests"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jest": "^28.1.6",
+    "@types/node": "^18.6.4",
+    "jest": "^28.1.3",
+    "nodemon": "^2.0.19",
+    "sucrase": "^3.25.0",
+    "tslib": "^2.4.0",
+    "typescript": "^4.7.4"
+  },
+  "files": [
+    "dist"
+  ]
+}
