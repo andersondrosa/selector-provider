@@ -13,7 +13,10 @@ import React, {
   ReactNode,
 } from "react";
 
-const uid = () => Math.random().toString().substring(2, 13);
+const uid = () =>
+  Math.random()
+    .toString()
+    .substring(2, 13);
 
 type ListenerProps = {
   key: string;
@@ -108,13 +111,21 @@ export function useContextSelector(
   select: (context: any) => any
 ) {
   const ref: MutableRefObject<RefProps> = useContext(SelectorContext.Context);
-  const [selected, callback] = useState(select(ref?.current.context || {}));
+  const [state, setState] = useState({
+    result: select(ref?.current.context || {}),
+  });
+
   useEffect(() => {
     const key = uid();
-    ref != undefined && ref.current.addListener({ key, select, callback });
+    ref != undefined &&
+      ref.current.addListener({
+        key,
+        select,
+        callback: (result) => setState({ result }),
+      });
     // eslint-disable-next-line react-hooks/exhaustive-deps
     return () => (ref && ref.current.removeListener(key), undefined);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  return selected;
+  return state.result;
 }
