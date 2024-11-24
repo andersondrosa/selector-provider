@@ -1,6 +1,6 @@
 {
   "name": "selector-provider",
-  "version": "1.0.0-dev",
+  "version": "1.0.0-dev2",
   "author": "Anderson D. Rosa",
   "type": "module",
   "main": "dist/index.cjs.js",
