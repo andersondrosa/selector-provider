@@ -10,19 +10,19 @@ export function useContextSelector<State, FilteredState>(
     throw new Error("useContextSelector must be used within its Provider");
 
   const [state, setState] = useState<FilteredState>(() =>
-    select(ref.current.context as State)
+    select(ref.current?.context)
   );
 
   useEffect(() => {
     const key = Math.random().toString(36).substring(2, 15);
 
-    ref.current.addListener({
+    ref.current?.addListener({
       key,
       select,
       callback: (result: FilteredState) => setState(result),
     });
 
-    return () => ref.current.removeListener(key);
+    return () => ref.current?.removeListener(key);
   }, []);
 
   return state;
