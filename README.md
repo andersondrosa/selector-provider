@@ -29,7 +29,7 @@ yarn add selector-provider
 Aqui está um exemplo básico de como utilizar o Selector com React Context:
 
 ```jsx
-import { createSelector, useContextSelector } from "selector-provider";
+import { createContextSelector, useContextSelector } from "selector-provider";
 
 export const useSelector = (callback) => useContextSelector(Selector, callback);
 
@@ -37,7 +37,7 @@ export const useSelector = (callback) => useContextSelector(Selector, callback);
 export const Context = React.createContext({});
 
 // Seletor é utilizado como um wrapper sobre o Contexto do React
-export const Selector = createSelector(Context);
+export const Selector = createContextSelector(Context);
 
 // Utilização natural
 export const useContext = () => React.useContext(Context);

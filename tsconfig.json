@@ -1,25 +1,39 @@
 {
-  // see https://www.typescriptlang.org/tsconfig to better understand tsconfigs
-  "include": ["src/**/*", "types", "index.tsx"],
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"],
   "compilerOptions": {
-    "target": "es2017",
-    "module": "commonjs",
-    "lib": ["esnext"],
-    "outDir": "./dist",
-    "rootDir": ".",
-    "removeComments": true,
-    "importHelpers": true,
+    "module": "ESNext",
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "skipLibCheck": true,
     "declaration": true,
     "sourceMap": true,
-    "strict": false,
-    "moduleResolution": "node",
-    "jsx": "react",
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
+    /* Bundler mode */
+    "moduleResolution": "Node",
     "resolveJsonModule": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "baseUrl": "."
+    "isolatedModules": true,
+    "noEmit": true,
+    "noImplicitAny": false,
+    "baseUrl": ".",
+    "paths": {
+      "react": ["./node_modules/@types/react"]
+    },
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "declarationDir": "./dist",
+
+    /* Linting */
+    "strict": false,
+    "noUnusedLocals": false, // Gera erros quando há variáveis locais não usadas
+    "noUnusedParameters": false, // Gera erros quando há parâmetros de função não usados
+    "noImplicitReturns": false, // Gera erros quando uma função tem caminhos de código que não retornam explicitamente um valor
+    "noFallthroughCasesInSwitch": true,
+
+    "lib": ["DOM", "DOM.Iterable", "ESNext"], // Tipos de ambiente incluídos (DOM para browser)
+    "jsx": "react-jsx", // Usa JSX no modo react-jsx (para React 17+)
+    "allowSyntheticDefaultImports": true, // Permite importar módulos com importações default mesmo que não seja um ES Module
+
+    /* Type Checking */
+    "strictNullChecks": true // Verifica o uso correto de null e undefined
   }
 }
